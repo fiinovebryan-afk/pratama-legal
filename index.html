@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PRATAMA LEGAL - Jasa Perizinan Jabodetabek</title>
+<style>
+:root{--g:#0f3d3e;--g2:#165a55;--a:#e3a82b;--bg:#f3f6f6;--ink:#14201f;--mu:#5b6b69;--wa:#1fa855;--r:14px}
+*{box-sizing:border-box;margin:0}body{font:16px/1.6 system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:inherit}h1,h2,h3{font-family:Georgia,serif;line-height:1.2}
+header{position:sticky;top:0;z-index:9;background:var(--g);color:#fff;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:12px 5%}
+.logo{font:700 22px Georgia,serif;letter-spacing:1px;cursor:pointer}.logo b{color:var(--a)}
+nav a{color:#dfeceb;text-decoration:none;margin-left:16px;cursor:pointer;font-size:15px}nav a:hover{color:var(--a)}
+.btn{display:inline-block;border:0;border-radius:10px;padding:11px 20px;font:600 15px inherit;background:var(--a);color:#1b1500;cursor:pointer;text-decoration:none}
+.btn.wa{background:var(--wa);color:#fff}.btn.em{background:#2b6cb0;color:#fff}.btn.o{background:#fff;color:var(--g);border:1px solid var(--g)}.btn.s{padding:6px 12px;font-size:13px}
+section{padding:48px 5%;max-width:1150px;margin:auto}
+.hero{background:linear-gradient(120deg,var(--g),var(--g2));color:#fff;max-width:none;display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center}
+.hero>div{max-width:560px;justify-self:end}.hero svg{max-width:420px;width:100%}
+.hero h1{font-size:clamp(28px,4.5vw,46px);margin-bottom:14px}.hero p{color:#cfe3e1;margin-bottom:22px}.hero .btn{margin:0 8px 8px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;margin-top:22px}
+.card{background:#fff;border-radius:var(--r);padding:20px;border:1px solid #dbe4e3}
+.card .ic{font-size:30px;background:#e8f1f0;width:54px;height:54px;border-radius:12px;display:grid;place-items:center;margin-bottom:10px}
+.card h3{font-size:18px;margin-bottom:6px}.card p{color:var(--mu);font-size:14px}.pr{font-weight:700;color:var(--g2);margin:8px 0}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:20px}
+.steps div{border-left:4px solid var(--a);padding:6px 14px;background:#fff;border-radius:6px}
+.form{background:#fff;border-radius:var(--r);padding:24px;max-width:720px;margin:auto;border:1px solid #dbe4e3}
+label{display:block;font-weight:600;font-size:14px;margin:12px 0 4px}
+input,select,textarea{width:100%;padding:10px 12px;border:1px solid #b9c7c5;border-radius:9px;font:inherit;background:#fff}
+input[type=checkbox]{width:auto;margin-right:8px}.ck{font-weight:400;margin:4px 0}
+input:focus,select:focus,textarea:focus,.btn:focus-visible{outline:3px solid var(--a)}
+.tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700;background:#e3a82b33;color:#7a5600}
+.tag.Selesai{background:#1fa85533;color:#0b6b32}.tag.Dibatalkan{background:#d9363e33;color:#9b1c22}
+.msg{white-space:pre-wrap;background:#f0f4f4;border:1px dashed #9db3b0;border-radius:10px;padding:12px;font:13px/1.5 monospace;max-height:260px;overflow:auto}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.err{color:#b4232a;font-weight:600;margin-top:8px}.ok{color:#0b6b32;font-weight:600}
+.modal{position:fixed;inset:0;background:#000a;display:none;place-items:center;z-index:20;padding:16px}.modal.on{display:grid}
+.modal>div{background:#fff;border-radius:var(--r);padding:24px;max-width:520px;width:100%;max-height:90vh;overflow:auto}
+footer{background:var(--g);color:#cfe3e1;padding:30px 5%;text-align:center;font-size:14px}footer a{color:var(--a)}
+.fab{position:fixed;right:16px;bottom:16px;background:var(--wa);color:#fff;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-size:28px;text-decoration:none;box-shadow:0 4px 14px #0005;z-index:15}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.hero>div{justify-self:start}}
+</style></head><body>
+<header><div class="logo" onclick="go('home')">PRATAMA <b>LEGAL</b></div>
+<nav><a onclick="go('home')">Beranda</a><a onclick="go('layanan')">Layanan</a><a onclick="go('alur')">Alur</a><a onclick="go('kontak')">Kontak</a><a onclick="go('akun')" id="navAkun">Masuk / Daftar</a></nav></header>
+<main id="app"></main>
+<footer>© PRATAMA LEGAL — Jasa Perizinan &amp; Legalitas Usaha Jabodetabek<br>
+<a href="https://wa.me/6282297167223" target="_blank">WhatsApp 1: 082297167223</a> · <a href="https://wa.me/6281929382015" target="_blank">WhatsApp 2: 081929382015</a> · <a href="mailto:fiirizkytia@gmail.com">fiirizkytia@gmail.com</a></footer>
+<a class="fab" href="https://wa.me/6282297167223?text=Halo%20PRATAMA%20LEGAL%2C%20saya%20ingin%20konsultasi%20perizinan" target="_blank" title="Chat WhatsApp">💬</a>
+<div class="modal" id="md"><div id="mdc"></div></div>
+<script>
+const $=s=>document.querySelector(s),L=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))||d}catch(e){return d}},S=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+const WA=['6282297167223','6281929382015'],EM='fiirizkytia@gmail.com';
+const KTP='KTP direksi/pemilik (foto jelas)',NPWP='NPWP pribadi direksi/pemilik',AKTA='Akta pendirian + SK Kemenkumham',ALM='Alamat lengkap kantor/usaha (kelurahan, kecamatan, kota)';
+const DEF=[
+{id:'kbli',ic:'🧾',n:'Pembuatan & Perubahan KBLI / NIB (OSS)',p:'Mulai Rp 500.000',d:'Pendaftaran NIB, penambahan atau perubahan KBLI lewat OSS RBA.',docs:[KTP,NPWP,AKTA,'NIB lama / data akun OSS (email & kata sandi OSS)','Daftar KBLI yang diinginkan (5 digit) atau deskripsi kegiatan usaha',ALM,'Nomor HP & email aktif']},
+{id:'pt',ic:'🏢',n:'Pendirian PT',p:'Mulai Rp 3.500.000',d:'Akta notaris, SK Kemenkumham, NPWP badan, NIB.',docs:['KTP & NPWP semua pendiri/pemegang saham/direksi/komisaris','Nama PT (3 pilihan nama)','Susunan modal dasar, modal disetor & persentase saham','Daftar KBLI / bidang usaha',ALM+' + status gedung/virtual office','Email & nomor HP aktif']},
+{id:'cv',ic:'🤝',n:'Pendirian CV',p:'Mulai Rp 2.000.000',d:'Akta CV, pendaftaran SKT, NPWP, NIB.',docs:['KTP & NPWP persero aktif dan pasif','Nama CV (3 pilihan)','Modal awal & pembagian peran','Daftar KBLI',ALM]},
+{id:'ptp',ic:'👤',n:'PT Perorangan (UMK)',p:'Mulai Rp 1.000.000',d:'Badan usaha satu pendiri, tanpa notaris, pernyataan pendirian.',docs:[KTP,NPWP,'Nama PT Perorangan','Modal dasar (maks. Rp 50 jt) & KBLI',ALM,'Email & HP aktif']},
+{id:'akta',ic:'📜',n:'Perubahan Akta (alamat, direksi, modal, dll)',p:'Mulai Rp 2.500.000',d:'Perubahan data perseroan dan pengesahannya.',docs:[AKTA+' terakhir','Foto KTP & NPWP pihak baru/yang berubah','NIB & NPWP badan','Keterangan perubahan yang diinginkan','Dokumen alamat baru (jika pindah)']},
+{id:'npwp',ic:'💳',n:'NPWP Badan & PKP',p:'Mulai Rp 750.000',d:'Pendaftaran NPWP badan, SPPKP, e-Faktur, sertifikat elektronik.',docs:[AKTA,'KTP & NPWP pengurus','NIB','Surat keterangan domisili/kontrak kantor','Foto kantor/usaha (depan & dalam)']},
+{id:'siup',ic:'🏭',n:'Sertifikat Standar / Izin Usaha Sektoral',p:'Sesuai KBLI',d:'Izin usaha lanjutan setelah NIB (perdagangan, jasa, konstruksi, dll).',docs:['NIB (PDF)','Akun OSS',AKTA,'Dokumen teknis sesuai bidang (denah, SOP, tenaga ahli)','Foto lokasi usaha']},
+{id:'sbu',ic:'🏗️',n:'SBU Konstruksi / SKK',p:'Mulai Rp 4.000.000',d:'Sertifikat Badan Usaha dan registrasi LPJK.',docs:[AKTA,'NIB & NPWP badan','KTP, ijazah & SKK penanggung jawab teknis','Laporan keuangan / neraca','Daftar pengalaman proyek']},
+{id:'halal',ic:'🥗',n:'Sertifikat Halal & PIRT',p:'Mulai Rp 1.500.000',d:'Sertifikasi halal self-declare dan izin PIRT UMKM.',docs:[KTP,'NIB','Daftar produk & bahan baku','Foto proses produksi & kemasan','Alamat produksi']},
+{id:'merek',ic:'™️',n:'Pendaftaran Merek (HKI)',p:'Mulai Rp 2.000.000',d:'Cek ketersediaan dan pendaftaran merek ke DJKI.',docs:['KTP pemohon (atau akta + SK Kemenkumham jika badan hukum)','Logo merek (JPG/PNG)','Kelas barang/jasa & uraian','Nama pemohon & alamat','Surat pernyataan UMK (jika ada)']},
+{id:'dom',ic:'📍',n:'SKDP / Domisili Usaha',p:'Mulai Rp 500.000',d:'Surat keterangan domisili dari kelurahan/kecamatan.',docs:[KTP,'PBB tahun terakhir','Sertifikat/kontrak sewa tempat','Surat pengantar RT/RW','Foto lokasi']},
+{id:'pbg',ic:'🏠',n:'PBG / SLF / Izin Bangunan',p:'Sesuai luas',d:'Persetujuan bangunan gedung dan sertifikat laik fungsi.',docs:['Sertifikat tanah / bukti kepemilikan','KTP & NPWP pemilik','PBB terakhir','Gambar denah & tampak','Data konsultan perencana']},
+{id:'lh',ic:'🌿',n:'Izin Lingkungan (UKL-UPL / SPPL)',p:'Sesuai risiko',d:'Dokumen lingkungan usaha dan pelaporan.',docs:['NIB & KBLI','Deskripsi kegiatan & kapasitas','Denah lokasi & koordinat','Dokumen pengelolaan limbah','KTP penanggung jawab']}];
+const svc=()=>L('pl_s',DEF),usr=()=>L('pl_cur',null);
+function go(v,a){const A=$('#app');$('#navAkun').textContent=usr()?('👤 '+usr().u):'Masuk / Daftar';scrollTo(0,0);
+if(v==='home')A.innerHTML=home();else if(v==='layanan')A.innerHTML='<section><h2>Semua layanan perizinan</h2>'+cards()+'</section>';
+else if(v==='alur')A.innerHTML=alur();else if(v==='kontak')A.innerHTML=kontak();else if(v==='akun')usr()?go('dash'):A.innerHTML=auth();
+else if(v==='order')usr()?A.innerHTML=orderForm(a):(window._next=a,go('akun'));else if(v==='dash')dash();}
+function cards(){return '<div class="grid">'+svc().map(s=>`<div class="card"><div class="ic">${s.ic}</div><h3>${s.n}</h3><p>${s.d}</p><div class="pr">${s.p}</div><div class="row"><button class="btn s o" onclick="detail('${s.id}')">Dokumen</button><button class="btn s" onclick="go('order','${s.id}')">Daftar</button></div></div>`).join('')+'</div>'}
+function home(){return `<section class="hero"><div><h1>Izin usaha Anda beres, tanpa bolak-balik kantor.</h1><p>PRATAMA LEGAL mengurus KBLI, NIB, PT/CV, hingga izin sektoral untuk Jakarta, Bogor, Depok, Tangerang, dan Bekasi. Kirim dokumen lewat WhatsApp atau email, kami yang proses.</p><button class="btn" onclick="go('layanan')">Lihat layanan</button><button class="btn wa" onclick="go('order','kbli')">Daftar sekarang</button><a class="btn o" href="https://wa.me/6282297167223" target="_blank">Tanya via WhatsApp</a></div>
+<svg viewBox="0 0 400 300" role="img" aria-label="Ilustrasi gedung dan dokumen"><rect x="40" y="250" width="320" height="8" rx="4" fill="#e3a82b"/><rect x="70" y="70" width="110" height="180" rx="6" fill="#fff"/><rect x="190" y="110" width="90" height="140" rx="6" fill="#cfe3e1"/><g fill="#165a55">${[0,1,2,3].map(i=>[0,1,2].map(j=>`<rect x="${85+j*30}" y="${85+i*38}" width="18" height="22" rx="3"/>`).join('')).join('')}</g><rect x="205" y="125" width="60" height="125" fill="#e3a82b" opacity=".35"/><rect x="270" y="150" width="90" height="110" rx="8" fill="#fff" transform="rotate(8 315 205)"/><path d="M285 185h60M285 205h60M285 225h38" stroke="#0f3d3e" stroke-width="5" stroke-linecap="round" transform="rotate(8 315 205)"/><circle cx="335" cy="160" r="22" fill="#1fa855"/><path d="M325 160l8 8 14-16" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/></svg></section>
+<section><h2>Layanan unggulan</h2>${cards()}</section>${alur()}${kontak()}`}
+function alur(){return `<section id="alur"><h2>Alur pengurusan</h2><div class="steps"><div><b>1. Daftar akun</b><br>Buat username &amp; password.</div><div><b>2. Isi pengajuan</b><br>Pilih layanan, isi data usaha.</div><div><b>3. Kirim dokumen</b><br>Teks pengajuan otomatis ke WhatsApp/email, lampirkan foto/PDF.</div><div><b>4. Kami proses</b><br>Pantau status di akun Anda.</div><div><b>5. Dokumen selesai</b><br>NIB/akta dikirim digital &amp; fisik.</div></div></section>`}
+function kontak(){return `<section id="kontak"><h2>Hubungi kami</h2><div class="grid"><div class="card"><h3>WhatsApp 1</h3><p>082297167223</p><br><a class="btn wa s" target="_blank" href="https://wa.me/6282297167223">Chat sekarang</a></div><div class="card"><h3>WhatsApp 2</h3><p>081929382015</p><br><a class="btn wa s" target="_blank" href="https://wa.me/6281929382015">Chat sekarang</a></div><div class="card"><h3>Email</h3><p>fiirizkytia@gmail.com</p><br><a class="btn em s" href="mailto:fiirizkytia@gmail.com?subject=Konsultasi%20Perizinan">Kirim email</a></div></div><p style="margin-top:14px;color:var(--mu)">Wilayah layanan: Jakarta, Bogor, Depok, Tangerang, Bekasi.</p></section>`}
+function detail(id){const s=svc().find(x=>x.id===id);$('#mdc').innerHTML=`<h3>${s.ic} ${s.n}</h3><p style="color:var(--mu)">${s.d}</p><h4 style="margin:12px 0 4px">Dokumen &amp; data yang dibutuhkan</h4><ul style="padding-left:20px">${s.docs.map(d=>`<li>${d}</li>`).join('')}</ul><div class="row"><button class="btn" onclick="cm();go('order','${id}')">Daftar layanan ini</button><button class="btn o" onclick="cm()">Tutup</button></div>`;$('#md').classList.add('on')}
+function cm(){$('#md').classList.remove('on')}$('#md').onclick=e=>{if(e.target.id==='md')cm()};
+function auth(){return `<section><div class="form"><h2>Masuk / Daftar</h2><p style="color:var(--mu)">Cukup username dan password, tanpa email atau Google.</p>
+<div class="row"><button class="btn o" onclick="tab(0)" id="t0">Masuk</button><button class="btn o" onclick="tab(1)" id="t1">Daftar baru</button></div>
+<div id="fm"></div></div></section>`}
+function tab(n){$('#fm').innerHTML=`<label>Username</label><input id="u" autocomplete="username">${n?'<label>Nama lengkap</label><input id="nm"><label>Nomor WhatsApp</label><input id="hp" type="tel" placeholder="08xxxxxxxxxx"><label>Email (opsional)</label><input id="em" type="email">':''}<label>Password</label><input id="pw" type="password" autocomplete="${n?'new':'current'}-password">${n?'<label>Ulangi password</label><input id="pw2" type="password">':''}<div class="err" id="er"></div><div class="row"><button class="btn" onclick="${n?'reg()':'login()'}">${n?'Buat akun':'Masuk'}</button></div>`}
+function reg(){const u=$('#u').value.trim().toLowerCase(),p=$('#pw').value,US=L('pl_u',[]);
+if(u.length<4)return $('#er').textContent='Username minimal 4 karakter.';if(!/^[a-z0-9_.]+$/.test(u))return $('#er').textContent='Username hanya huruf kecil, angka, titik, garis bawah.';
+if(p.length<6)return $('#er').textContent='Password minimal 6 karakter.';if(p!==$('#pw2').value)return $('#er').textContent='Ulangi password tidak sama.';
+if(!$('#nm').value.trim()||!$('#hp').value.trim())return $('#er').textContent='Nama dan nomor WhatsApp wajib diisi.';
+if(US.some(x=>x.u===u))return $('#er').textContent='Username sudah dipakai.';
+US.push({u,p,nm:$('#nm').value.trim(),hp:$('#hp').value.trim(),em:$('#em').value.trim(),at:new Date().toISOString()});S('pl_u',US);S('pl_cur',{u});afterLogin()}
+function login(){const x=L('pl_u',[]).find(x=>x.u===$('#u').value.trim().toLowerCase()&&x.p===$('#pw').value);if(!x)return $('#er').textContent='Username atau password salah.';S('pl_cur',{u:x.u});afterLogin()}
+function afterLogin(){const n=window._next;window._next=null;n?go('order',n):go('dash')}
+function me(){const c=usr();return c&&L('pl_u',[]).find(x=>x.u===c.u)}
+function orderForm(id){const m=me(),ss=svc(),s=ss.find(x=>x.id===id)||ss[0];return `<section><div class="form"><h2>Form pengajuan</h2><label>Layanan</label><select id="sv" onchange="orderChg()">${ss.map(x=>`<option value="${x.id}" ${x.id===s.id?'selected':''}>${x.n}</option>`).join('')}</select>
+<label>Nama lengkap pemohon</label><input id="f1" value="${m.nm}"><label>Nomor WhatsApp</label><input id="f2" value="${m.hp}"><label>Email</label><input id="f3" value="${m.em||''}">
+<label>Nama usaha / PT / CV</label><input id="f4"><label>Bidang usaha / KBLI yang diinginkan</label><input id="f5"><label>Wilayah</label><select id="f6"><option>Jakarta</option><option>Bogor</option><option>Depok</option><option>Tangerang</option><option>Bekasi</option></select>
+<label>Alamat lengkap usaha</label><textarea id="f7" rows="2"></textarea><label>Catatan tambahan</label><textarea id="f8" rows="2"></textarea>
+<label>Dokumen yang sudah Anda siapkan (akan dikirim ke WhatsApp/email)</label><div id="dk"></div><div class="err" id="er"></div><div class="row"><button class="btn" onclick="submitO()">Kirim pengajuan</button></div></div></section>`}
+function orderChg(){const s=svc().find(x=>x.id===$('#sv').value);$('#dk').innerHTML=s.docs.map((d,i)=>`<label class="ck"><input type="checkbox" value="${i}">${d}</label>`).join('')}
+const _og=go;go=function(v,a){_og(v,a);if(v==='order'&&usr())orderChg();if($('#fm'))tab(0)};
+function msgText(o){const s=svc().find(x=>x.id===o.sv)||{n:o.sv};return `*PENGAJUAN PERIZINAN - PRATAMA LEGAL*\nNo. Pesanan: ${o.id}\nUsername: ${o.u}\nLayanan: ${s.n}\n\nNama pemohon: ${o.f[0]}\nWhatsApp: ${o.f[1]}\nEmail: ${o.f[2]||'-'}\nNama usaha: ${o.f[3]||'-'}\nBidang usaha/KBLI: ${o.f[4]||'-'}\nWilayah: ${o.f[5]}\nAlamat: ${o.f[6]||'-'}\nCatatan: ${o.f[7]||'-'}\n\nDokumen yang akan saya kirim:\n${o.docs.length?o.docs.map(d=>'- '+d).join('\n'):'- (belum ada)'}\n\nMohon diproses. Terima kasih.`}
+function submitO(){const f=[1,2,3,4,5,6,7,8].map(i=>$('#f'+i).value.trim());if(!f[0]||!f[1])return $('#er').textContent='Nama dan WhatsApp wajib diisi.';
+const s=svc().find(x=>x.id===$('#sv').value),docs=[...document.querySelectorAll('#dk input:checked')].map(c=>s.docs[c.value]);
+const o={id:'PL-'+Date.now().toString().slice(-7),u:usr().u,sv:s.id,f,docs,st:'Baru',nt:'',at:new Date().toISOString()};const O=L('pl_o',[]);O.push(o);S('pl_o',O);sendPage(o.id)}
+function sendPage(id){const o=L('pl_o',[]).find(x=>x.id===id),t=msgText(o),e=encodeURIComponent;$('#app').innerHTML=`<section><div class="form"><h2 class="ok">✅ Pengajuan tersimpan (${o.id})</h2><p>Langkah terakhir: kirim teks ini beserta foto/PDF dokumen ke tim kami.</p><div class="msg" id="mt">${t.replace(/</g,'&lt;')}</div>
+<div class="row">${WA.map((n,i)=>`<a class="btn wa" target="_blank" href="https://wa.me/${n}?text=${e(t)}">Kirim WhatsApp ${i+1}</a>`).join('')}<a class="btn em" href="mailto:${EM}?subject=${e('Pengajuan '+o.id+' - PRATAMA LEGAL')}&body=${e(t.replace(/\*/g,''))}">Kirim Email</a><button class="btn o" onclick="navigator.clipboard.writeText(document.getElementById('mt').textContent).then(()=>this.textContent='Tersalin ✓')">Salin teks</button><button class="btn o" onclick="go('dash')">Lihat pesanan saya</button></div></div></section>`}
+function dash(){const m=me();if(!m)return go('akun');const O=L('pl_o',[]).filter(x=>x.u===m.u).reverse(),ss=svc();
+$('#app').innerHTML=`<section><h2>Halo, ${m.nm}</h2><div class="row"><button class="btn" onclick="go('order')">+ Pengajuan baru</button><button class="btn o" onclick="logout()">Keluar</button></div><h3 style="margin:24px 0 10px">Pesanan saya</h3>${O.length?O.map(o=>`<div class="card" style="margin-bottom:12px"><b>${o.id}</b> · ${(ss.find(x=>x.id===o.sv)||{}).n}<br><span class="tag ${o.st}">${o.st}</span> <small style="color:var(--mu)">${new Date(o.at).toLocaleDateString('id-ID')}</small>${o.nt?`<p>📝 Catatan admin: ${o.nt}</p>`:''}<div class="row"><button class="btn s wa" onclick="sendPage('${o.id}')">Kirim ulang ke WA/Email</button></div></div>`).join(''):'<p>Belum ada pesanan. Mulai dengan pengajuan baru.</p>'}</section>`}
+function logout(){localStorage.removeItem('pl_cur');go('home')}
+if(!L('pl_s',null))S('pl_s',DEF);
+go('home');
+</script></body></html>
